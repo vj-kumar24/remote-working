@@ -20,3 +20,14 @@
 - name: Update postgres servers
   hosts: databases
   become: yes
+
+  tasks:
+  - name: Ensure postgres DB is at the latest version
+    ansible.builtin.yum:
+      name: postgresql
+      state: latest
+
+  - name: Ensure that postgresql is started
+    ansible.builtin.service:
+      name: postgresql
+      state: started
