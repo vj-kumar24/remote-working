@@ -1,0 +1,12 @@
+
+---
+- name: Example Simple Playbook
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: Copy file example_file to /tmp with permissions
+    ansible.builtin.copy:
+      src: ./example_file
+      dest: /tmp/example_file
+      mode: '0644'
